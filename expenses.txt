@@ -1,0 +1,5 @@
+Expense Summary
+Total expenses: $15.00
+Average expense: $3.00
+Highest expense: $5.00
+Lowest expense: $1.00
