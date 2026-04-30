@@ -1,12 +1,25 @@
+// Name: Eric Geiger
+// Course: COSC - 1436 - 21004
+// Date: 3/9/2026
+/* Purpose: This program is a personal expense and budget 
+   calculator that allows users to enter their expenses, display
+   a summary of those expenses, and save the summary to a text file.
+   The program uses an array to store the expenses and includes functions
+   for each of the main features: entering expenses, displaying the summary,
+   and saving the summary to a file. The user interacts with 
+   the program through a simple menu system.
+ */
+
+// https://github.com/ericgeiger1/cppFinal
+
+// I planned, then wrote. And then planned more with Github Copilot, then wrote more. I tested the code as I went along,
+// asking copilot for help as needed with possible improvements, and modified it as needed.
+
 #include <iostream>
 #include <fstream>
 #include <limits>
 #include <iomanip>
 using namespace std;
-
-// I planned, then wrote. And then planned more with Github Copilot, then wrote more. I tested the code as I went along,
-// asking copilot for help as needed with possible improvements, and modified it as needed.
-
 // Added consts to make the code more readable and maintainable. 
 // I also added input validation to ensure that the user enters valid choices and expense counts
 const int MAX_EXPENSES = 20;
@@ -48,7 +61,6 @@ int main() {
 
     } while (choice != QUIT);
 
-
     return 0;
 }
 // The show menu function displays the main menu options to the user.
@@ -66,7 +78,7 @@ void showMenu() {
 int enterExpenses(double expenses[], int maxSize) {
     int count;
 
-    cout << "How many expenses would you like to enter? ";
+    cout << "How many expenses would you like to enter? (1-20) ";
     cin >> count;
 
     while (count < 1 || count > maxSize) {
@@ -160,5 +172,3 @@ void saveSummary(const double expenses[], int count) {
     outputFile.close();
     cout << "Summary saved to expenses.txt" << endl;
 }
-
-
