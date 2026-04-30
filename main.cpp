@@ -120,7 +120,7 @@ void displaySummary(const double expenses[], int count) {
 //It uses ofstream to write to the file and includes error handling to ensure the file is opened successfully.
 void saveSummary(const double expenses[], int count) {
     if (count == 0) {
-        cout << "No expenses have been entered yet." << endl << endl2
+        cout << "No expenses have been entered yet." << endl << endl;
         ;
         return;
     }
