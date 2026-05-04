@@ -32,6 +32,7 @@ void showMenu();
 int enterExpenses(double expenses[], int maxSize);
 void displaySummary(const double expenses[], int count);
 void saveSummary(const double expenses[], int count);
+void calculateStats(const double expenses[], int count, double& total, double& average, double& highest, double& lowest);
 
 // The program allows the user to enter expenses, display a summary of the expenses, and save the summary to a text file.
 int main() {
@@ -101,23 +102,10 @@ void displaySummary(const double expenses[], int count) {
         return;
     }
 
-    double total = 0.0;  //initialize total to 0.0.
-    double highest = expenses[0]; //initialize highest to the first expense in the array.
-    double lowest = expenses[0]; //initialize lowest to the first expense in the array.
+    double total, average, highest, lowest;
+    calculateStats(expenses, count, total, average, highest, lowest);
 
-    for (int index = 0; index < count; index++) { //loop through the expenses and calculate the total, highest, and lowest expenses.
-        total += expenses[index];
 
-        if (expenses[index] > highest) { //if the current expense is greater than the current highest, update highest to the current expense.
-            highest = expenses[index];
-        }
-
-        if (expenses[index] < lowest) { //if the current expense is less than the current lowest, update lowest to the current expense.
-            lowest = expenses[index];
-        }
-    }
-
-    double average = total / count;
 // Display the summary with two decimal places using fixed and setprecision manipulators from the iomanip library.
     cout << fixed << setprecision(2);
     cout << endl;
@@ -133,27 +121,11 @@ void displaySummary(const double expenses[], int count) {
 void saveSummary(const double expenses[], int count) {
     if (count == 0) {
         cout << "No expenses have been entered yet." << endl << endl;
-        ;
         return;
     }
 
-    double total = 0.0;
-    double highest = expenses[0];
-    double lowest = expenses[0];
-// Loop through the expenses to calculate the total, highest, and lowest expenses.
-    for (int index = 0; index < count; index++) {
-        total += expenses[index];
-
-        if (expenses[index] > highest) { //if the current expense is greater than the current highest, update highest to the current expense.
-            highest = expenses[index];
-        }
-
-        if (expenses[index] < lowest) { //if the current expense is less than the current lowest, update lowest to the current expense.
-            lowest = expenses[index];
-        }
-    }
-
-    double average = total / count;
+    double total, average, highest, lowest;
+    calculateStats(expenses, count, total, average, highest, lowest);
 
     ofstream outputFile("expenses.txt");
 // Check if the file was opened successfully before writing to it.
@@ -171,4 +143,22 @@ void saveSummary(const double expenses[], int count) {
 // Close the file after writing to it.
     outputFile.close();
     cout << "Summary saved to expenses.txt" << endl;
+}
+
+// Helper function to calculate statistics and demonstrate passing by reference.
+void calculateStats(const double expenses[], int count, double& total, double& average, double& highest, double& lowest) {
+    total = 0.0;
+    highest = expenses[0];
+    lowest = expenses[0];
+    
+    for (int index = 0; index < count; index++) {
+        total += expenses[index];
+        if (expenses[index] > highest) {
+            highest = expenses[index];
+        }
+        if (expenses[index] < lowest) {
+            lowest = expenses[index];
+        }
+    }
+    average = total / count;
 }
