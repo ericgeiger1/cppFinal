@@ -105,6 +105,7 @@ void displaySummary(const double expenses[], int count) {
     double total, average, highest, lowest;
     calculateStats(expenses, count, total, average, highest, lowest);
 
+
 // Display the summary with two decimal places using fixed and setprecision manipulators from the iomanip library.
     cout << fixed << setprecision(2);
     cout << endl;
