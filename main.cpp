@@ -1,6 +1,6 @@
 // Name: Eric Geiger
 // Course: COSC - 1436 - 21004
-// Date: 3/9/2026
+// Date: 5/4/26
 /*
 Purpose: This program is a personal expense and budget calculator 
 that allows users to enter their expenses, display a summary of 
