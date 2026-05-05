@@ -1,15 +1,12 @@
 // Name: Eric Geiger
 // Course: COSC - 1436 - 21004
 // Date: 3/9/2026
-/* Purpose: This program is a personal expense and budget 
-   calculator that allows users to enter their expenses, display
-   a summary of those expenses, and save the summary to a text file.
-   The program uses an array to store the expenses and includes functions
-   for each of the main features: entering expenses, displaying the summary,
-   and saving the summary to a file. The user interacts with 
-   the program through a simple menu system.
+/*
+Purpose: This program is a personal expense and budget calculator 
+that allows users to enter their expenses, display a summary of 
+those expenses, and save the summary to a text file. 
  */
-
+ 
 // https://github.com/ericgeiger1/cppFinal
 
 // I used Github copilot to grade my code and make suggestions for improvements. The main imrovement it gave me was
